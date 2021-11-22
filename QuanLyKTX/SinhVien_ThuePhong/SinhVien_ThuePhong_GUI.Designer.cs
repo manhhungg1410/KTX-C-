@@ -586,7 +586,7 @@ namespace QuanLyKTX.SinhVien_DatPhong
             this.txt_NgaySinh.Enabled = false;
             this.txt_NgaySinh.Location = new System.Drawing.Point(118, 127);
             this.txt_NgaySinh.Name = "txt_NgaySinh";
-            this.txt_NgaySinh.Size = new System.Drawing.Size(163, 24);
+            this.txt_NgaySinh.Size = new System.Drawing.Size(164, 24);
             this.txt_NgaySinh.TabIndex = 15;
             // 
             // btn_AddTB

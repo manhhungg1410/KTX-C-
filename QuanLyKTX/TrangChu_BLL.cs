@@ -17,10 +17,15 @@ namespace QuanLyKTX
         Que.Que_GUI que = new Que.Que_GUI();
         SinhVien.SinhVien_GUI sinhvien = new SinhVien.SinhVien_GUI();
         SinhVien_DatPhong.SinhVien_ThuePhong_GUI SVThuePhong = new SinhVien_DatPhong.SinhVien_ThuePhong_GUI();
-
+        SinhVien_TraPhong.SinhVien_TraPhong_GUI SVTraPhong = new SinhVien_TraPhong.SinhVien_TraPhong_GUI();
         public void qlSVThuePhong()
         {
             SVThuePhong.Show();
+        }
+
+        public void qlSVTraPhong()
+        {
+            SVTraPhong.Show();
         }
 
         public void qlPhong()

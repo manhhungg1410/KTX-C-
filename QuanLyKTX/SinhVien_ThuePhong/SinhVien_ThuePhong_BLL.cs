@@ -83,7 +83,15 @@ namespace QuanLyKTX.SinhVien_DatPhong
         }
         public void Delete(string MaSoThue)
         {
-            SV_Phong.Delete(MaSoThue);
+            try
+            {
+                SV_Phong.Delete(MaSoThue);
+            }
+            catch
+            {
+                throw new Exception("Việc xóa dữ liệu liên quan đến các bản ghi khác!! Vui lòng xóa các bản ghi đó trước");
+            }
+           
         }
 
         public DataTable LayMaPhong()

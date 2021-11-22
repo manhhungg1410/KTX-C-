@@ -95,6 +95,7 @@ namespace QuanLyKTX.SinhVien_DatPhong
             txt_MaPhong.Text = "";
             txt_MaSoThue.Text = "";
             cbo_TTThuePhong.SelectedIndex = 0;
+            cbo_TTThuePhong.Enabled = false;
         }
 
         private void SV_Phong_GUI_Load(object sender, EventArgs e)
@@ -193,16 +194,24 @@ namespace QuanLyKTX.SinhVien_DatPhong
             cbo_MaSV.Text = "";
             cbo_TTThuePhong.SelectedIndex = 0;
             txt_GhiChu.Focus();
+          
         }
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
             try
             {
-                SV_Phong.Insert(txt_MaSoThue.Text, txt_MaSV.Text, txt_MaPhong.Text, dtp_NgayBD.Text, dtp_NgayKT.Text, txt_GhiChu.Text, cbo_TTThuePhong.SelectedIndex);
-                ShowTable();
-                MessageBox.Show("Thêm mới thành công!", "Thông báo");
-                btn_Reset_Click(null, null);
+                if(txt_GioiTinh.Text == txt_LoaiPhong.Text)
+                {
+                    SV_Phong.Insert(txt_MaSoThue.Text, txt_MaSV.Text, txt_MaPhong.Text, dtp_NgayBD.Text, dtp_NgayKT.Text, txt_GhiChu.Text, cbo_TTThuePhong.SelectedIndex);
+                    ShowTable();
+                    MessageBox.Show("Thêm mới thành công!", "Thông báo");
+                    btn_Reset_Click(null, null);
+                }
+                else
+                {
+                    throw new Exception("Giới tính sinh viên không phù hợp với phòng này");
+                }
             }
             catch (Exception ex)
             {
@@ -218,9 +227,10 @@ namespace QuanLyKTX.SinhVien_DatPhong
         {
             try
             {
+                cbo_TTThuePhong.Enabled = true;
                 txt_MaSV.Enabled = false;
                 cbo_MaSV.Enabled = false;
-                cbo_MaPhong.Enabled = false;
+                //cbo_MaPhong.Enabled = false;
                 btn_Luu.Hide();
                 btn_Sua.Show();
                 btn_Sua.Enabled = true;
@@ -286,6 +296,7 @@ namespace QuanLyKTX.SinhVien_DatPhong
                     btn_Reset_Click(null, null);
                     getMaSV();
                     getMaPhong();
+                    getMaPhong_Search();
                     Reset();
                 }
             }
@@ -301,13 +312,23 @@ namespace QuanLyKTX.SinhVien_DatPhong
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(cbo_TTThuePhong.SelectedIndex.ToString());
+            //MessageBox.Show(cbo_TTThuePhong.SelectedIndex.ToString());
             try
             {
-                SV_Phong.Update(txt_MaSoThue.Text,dtp_NgayBD.Text,dtp_NgayKT.Text, txt_GhiChu.Text,cbo_TTThuePhong.SelectedIndex);
-                ShowTable();
-                MessageBox.Show("Sửa thành công!", "Thông báo");
-                btn_Reset_Click(null, null);
+                if (txt_GioiTinh.Text == txt_LoaiPhong.Text)
+                {
+                    if (MessageBox.Show("Bạn có chắc chắn muốn sửa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        SV_Phong.Update(txt_MaSoThue.Text, dtp_NgayBD.Text, dtp_NgayKT.Text, txt_GhiChu.Text, cbo_TTThuePhong.SelectedIndex);
+                        ShowTable();
+                        MessageBox.Show("Sửa thành công!", "Thông báo");
+                        btn_Reset_Click(null, null);
+                    }           
+                }
+                else
+                {
+                    throw new Exception("Giới tính sinh viên không phù hợp với loại phòng này!");
+                }
             }
             catch (Exception ex)
             {
@@ -352,7 +373,5 @@ namespace QuanLyKTX.SinhVien_DatPhong
             this.Visible = false;
             sinhvien.Show();
         }
-
-
     }
 }

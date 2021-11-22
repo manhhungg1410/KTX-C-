@@ -80,5 +80,11 @@ namespace QuanLyKTX
             TrangChu_BLL trangchu = new TrangChu_BLL();
             trangchu.qlSVThuePhong();
         }
+
+        private void trảPhòngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TrangChu_BLL trangchu = new TrangChu_BLL();
+            trangchu.qlSVTraPhong();
+        }
     }
 }
