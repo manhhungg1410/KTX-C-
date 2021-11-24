@@ -96,6 +96,13 @@ namespace QuanLyKTX.SinhVien_DatPhong
             txt_MaSoThue.Text = "";
             cbo_TTThuePhong.SelectedIndex = 0;
             cbo_TTThuePhong.Enabled = false;
+            DateTime startDay = DateTime.Today;
+            dtp_NgayBD.Value = startDay;
+            dtp_NgayKT.Value = startDay.AddDays(31);
+            dtp_NgayBD.Enabled = true;
+            dtp_NgayKT.Enabled = true;
+            txt_GhiChu.Enabled = true;
+            cbo_TTThuePhong.Enabled = true;
         }
 
         private void SV_Phong_GUI_Load(object sender, EventArgs e)
@@ -112,6 +119,10 @@ namespace QuanLyKTX.SinhVien_DatPhong
                 EditTable();
                 Reset();
                 cbo_TTThuePhong.SelectedIndex = 0;
+                DateTime startDay = DateTime.Today;
+                dtp_NgayBD.Value = startDay;
+          
+                dtp_NgayKT.Value = startDay.AddDays(31);
 
             }
             catch (Exception ex)
@@ -207,6 +218,10 @@ namespace QuanLyKTX.SinhVien_DatPhong
                     ShowTable();
                     MessageBox.Show("Thêm mới thành công!", "Thông báo");
                     btn_Reset_Click(null, null);
+                    getMaPhong();
+                    getMaPhong_Search();
+                    getMaSV();
+                    Reset();
                 }
                 else
                 {
@@ -227,46 +242,6 @@ namespace QuanLyKTX.SinhVien_DatPhong
         {
             try
             {
-                cbo_TTThuePhong.Enabled = true;
-                txt_MaSV.Enabled = false;
-                cbo_MaSV.Enabled = false;
-                //cbo_MaPhong.Enabled = false;
-                btn_Luu.Hide();
-                btn_Sua.Show();
-                btn_Sua.Enabled = true;
-                btn_Xoa.Show();
-                btn_Xoa.Enabled = true;
-                btn_Them.Enabled = false;
-                txt_MaSoThue.Text = dgv_SVThuePhong.CurrentRow.Cells[0].Value.ToString();
-
-                if (dgv_SVThuePhong.CurrentRow.Cells[3].Value.ToString() != "")
-                {
-                    dtp_NgayBD.Value = DateTime.Parse(dgv_SVThuePhong.CurrentRow.Cells[3].Value.ToString());
-                }
-
-                if (dgv_SVThuePhong.CurrentRow.Cells[4].Value.ToString() != "")
-                {
-                    dtp_NgayKT.Value = DateTime.Parse(dgv_SVThuePhong.CurrentRow.Cells[4].Value.ToString());
-                }
-                
-                txt_GhiChu.Text = dgv_SVThuePhong.CurrentRow.Cells[5].Value.ToString();
-                //cbo_TTThuePhong.Text = dgv_SVThuePhong.CurrentRow.Cells[6].Value.ToString();
-
-                // Xử lý khi người dùng cellclick vào datagridview rỗng
-
-                if (dgv_SVThuePhong.CurrentRow.Cells[1].Value.ToString() != "" && dgv_SVThuePhong.CurrentRow.Cells[0].Value.ToString() != "")
-                {
-
-                    cbo_MaPhong.Text = "";
-                    cbo_MaPhong.SelectedText = dgv_SVThuePhong.CurrentRow.Cells[2].Value.ToString();
-                    MaPhongChange();
-                    cbo_MaSV.Text = "";
-                    cbo_MaSV.SelectedText = dgv_SVThuePhong.CurrentRow.Cells[1].Value.ToString();
-                    MaSVChange();
-                }
-
-                //MessageBox.Show(dgv_SVThuePhong.CurrentRow.Cells[6].Value.ToString());
-
                 if (dgv_SVThuePhong.CurrentRow.Cells[6].Value.ToString() != "")
                 {
                     for (int i = 0; i < cbo_TTThuePhong.Items.Count; i++)
@@ -277,6 +252,64 @@ namespace QuanLyKTX.SinhVien_DatPhong
                         }
                     }
                 }
+
+                if (cbo_TTThuePhong.SelectedIndex == 2)
+                {
+                    cbo_TTThuePhong.Enabled = false;
+                    cbo_MaPhong.Enabled = false;
+                    dtp_NgayBD.Enabled = false;
+                    dtp_NgayKT.Enabled = false;
+                    txt_GhiChu.Enabled = false;
+                    cbo_MaSV.Enabled = false;
+                }
+                else
+                {
+                    cbo_MaPhong.Enabled = true;
+                    dtp_NgayBD.Enabled = true;
+                    dtp_NgayKT.Enabled = true;
+                    txt_GhiChu.Enabled = true;
+                    cbo_TTThuePhong.Enabled = true;
+                    txt_MaSV.Enabled = false;
+                    cbo_MaSV.Enabled = false;
+                    //cbo_MaPhong.Enabled = false;
+                    btn_Luu.Hide();
+                    btn_Sua.Show();
+                    btn_Sua.Enabled = true;
+                    btn_Xoa.Show();
+                    btn_Xoa.Enabled = true;
+                    btn_Them.Enabled = false;
+                    txt_MaSoThue.Text = dgv_SVThuePhong.CurrentRow.Cells[0].Value.ToString();
+
+                    if (dgv_SVThuePhong.CurrentRow.Cells[3].Value.ToString() != "")
+                    {
+                        dtp_NgayBD.Value = DateTime.Parse(dgv_SVThuePhong.CurrentRow.Cells[3].Value.ToString());
+                    }
+
+                    if (dgv_SVThuePhong.CurrentRow.Cells[4].Value.ToString() != "")
+                    {
+                        dtp_NgayKT.Value = DateTime.Parse(dgv_SVThuePhong.CurrentRow.Cells[4].Value.ToString());
+                    }
+
+                    txt_GhiChu.Text = dgv_SVThuePhong.CurrentRow.Cells[5].Value.ToString();
+                    //cbo_TTThuePhong.Text = dgv_SVThuePhong.CurrentRow.Cells[6].Value.ToString();
+
+                    // Xử lý khi người dùng cellclick vào datagridview rỗng
+
+                    if (dgv_SVThuePhong.CurrentRow.Cells[1].Value.ToString() != "" && dgv_SVThuePhong.CurrentRow.Cells[0].Value.ToString() != "")
+                    {
+
+                        cbo_MaPhong.Text = "";
+                        cbo_MaPhong.SelectedText = dgv_SVThuePhong.CurrentRow.Cells[2].Value.ToString();
+                        MaPhongChange();
+                        cbo_MaSV.Text = "";
+                        cbo_MaSV.SelectedText = dgv_SVThuePhong.CurrentRow.Cells[1].Value.ToString();
+                        MaSVChange();
+                    }
+
+                    //MessageBox.Show(dgv_SVThuePhong.CurrentRow.Cells[6].Value.ToString());
+
+                }
+
             }
             catch (Exception ex)
             {
@@ -319,10 +352,14 @@ namespace QuanLyKTX.SinhVien_DatPhong
                 {
                     if (MessageBox.Show("Bạn có chắc chắn muốn sửa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        SV_Phong.Update(txt_MaSoThue.Text, dtp_NgayBD.Text, dtp_NgayKT.Text, txt_GhiChu.Text, cbo_TTThuePhong.SelectedIndex);
+                        SV_Phong.Update(txt_MaSoThue.Text, dtp_NgayBD.Text, dtp_NgayKT.Text, txt_GhiChu.Text, cbo_TTThuePhong.SelectedIndex,cbo_MaPhong.Text);
                         ShowTable();
                         MessageBox.Show("Sửa thành công!", "Thông báo");
                         btn_Reset_Click(null, null);
+                        getMaSV();
+                        getMaPhong();
+                        getMaPhong_Search();
+                        Reset();
                     }           
                 }
                 else
@@ -352,6 +389,7 @@ namespace QuanLyKTX.SinhVien_DatPhong
         {
             btn_Show.Enabled = true;
             dgv_SVThuePhong.DataSource = SV_Phong.Search(cbo_MaSoThue_search.Text);
+            Reset();
         }
 
         private void btn_Show_Click(object sender, EventArgs e)

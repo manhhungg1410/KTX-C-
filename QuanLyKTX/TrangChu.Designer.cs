@@ -30,6 +30,8 @@ namespace QuanLyKTX
         private void InitializeComponent()
         {
             this.menu_home = new System.Windows.Forms.MenuStrip();
+            this.grb_ThongtinUser = new System.Windows.Forms.GroupBox();
+            this.grb_ThongKe = new System.Windows.Forms.GroupBox();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýDanhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýKhoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,8 +51,6 @@ namespace QuanLyKTX
             this.giớiThiệuVềKTXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tổngQuanVềKTXToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.grb_ThongtinUser = new System.Windows.Forms.GroupBox();
-            this.grb_ThongKe = new System.Windows.Forms.GroupBox();
             this.menu_home.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +74,29 @@ namespace QuanLyKTX
             this.menu_home.Size = new System.Drawing.Size(1316, 40);
             this.menu_home.TabIndex = 0;
             this.menu_home.Text = "menuStrip1";
+            // 
+            // grb_ThongtinUser
+            // 
+            this.grb_ThongtinUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.grb_ThongtinUser.Location = new System.Drawing.Point(10, 51);
+            this.grb_ThongtinUser.Name = "grb_ThongtinUser";
+            this.grb_ThongtinUser.Size = new System.Drawing.Size(385, 525);
+            this.grb_ThongtinUser.TabIndex = 1;
+            this.grb_ThongtinUser.TabStop = false;
+            this.grb_ThongtinUser.Text = "Thông tin người dùng";
+            // 
+            // grb_ThongKe
+            // 
+            this.grb_ThongKe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grb_ThongKe.Location = new System.Drawing.Point(414, 49);
+            this.grb_ThongKe.Name = "grb_ThongKe";
+            this.grb_ThongKe.Size = new System.Drawing.Size(890, 527);
+            this.grb_ThongKe.TabIndex = 2;
+            this.grb_ThongKe.TabStop = false;
+            this.grb_ThongKe.Text = "Thống kê";
             // 
             // thốngKêToolStripMenuItem
             // 
@@ -201,15 +224,19 @@ namespace QuanLyKTX
             // 
             // thuêPhòngToolStripMenuItem
             // 
+            this.thuêPhòngToolStripMenuItem.Image = global::QuanLyKTX.Properties.Resources.DanhMuc321;
+            this.thuêPhòngToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.thuêPhòngToolStripMenuItem.Name = "thuêPhòngToolStripMenuItem";
-            this.thuêPhòngToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.thuêPhòngToolStripMenuItem.Size = new System.Drawing.Size(236, 38);
             this.thuêPhòngToolStripMenuItem.Text = "Thuê Phòng";
             this.thuêPhòngToolStripMenuItem.Click += new System.EventHandler(this.thuêPhòngToolStripMenuItem_Click);
             // 
             // trảPhòngToolStripMenuItem
             // 
+            this.trảPhòngToolStripMenuItem.Image = global::QuanLyKTX.Properties.Resources.Doc321;
+            this.trảPhòngToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.trảPhòngToolStripMenuItem.Name = "trảPhòngToolStripMenuItem";
-            this.trảPhòngToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.trảPhòngToolStripMenuItem.Size = new System.Drawing.Size(236, 38);
             this.trảPhòngToolStripMenuItem.Text = "Trả Phòng";
             this.trảPhòngToolStripMenuItem.Click += new System.EventHandler(this.trảPhòngToolStripMenuItem_Click);
             // 
@@ -219,6 +246,7 @@ namespace QuanLyKTX
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(113, 36);
             this.toolStripMenuItem3.Text = "Tìm kiếm";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // giớiThiệuVềKTXToolStripMenuItem
             // 
@@ -245,29 +273,6 @@ namespace QuanLyKTX
             this.thoátToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
-            // 
-            // grb_ThongtinUser
-            // 
-            this.grb_ThongtinUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.grb_ThongtinUser.Location = new System.Drawing.Point(10, 51);
-            this.grb_ThongtinUser.Name = "grb_ThongtinUser";
-            this.grb_ThongtinUser.Size = new System.Drawing.Size(385, 525);
-            this.grb_ThongtinUser.TabIndex = 1;
-            this.grb_ThongtinUser.TabStop = false;
-            this.grb_ThongtinUser.Text = "Thông tin người dùng";
-            // 
-            // grb_ThongKe
-            // 
-            this.grb_ThongKe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grb_ThongKe.Location = new System.Drawing.Point(414, 49);
-            this.grb_ThongKe.Name = "grb_ThongKe";
-            this.grb_ThongKe.Size = new System.Drawing.Size(890, 527);
-            this.grb_ThongKe.TabIndex = 2;
-            this.grb_ThongKe.TabStop = false;
-            this.grb_ThongKe.Text = "Thống kê";
             // 
             // TrangChu
             // 

@@ -57,9 +57,9 @@ namespace QuanLyKTX.SinhVien_DatPhong
             helper.ExecuteQuery(sql);
         }
 
-        public void Update(string MaSoThue, DateTime NgayBD, DateTime NgayKT, string GhiChu, int TinhTrang)
+        public void Update(string MaSoThue, DateTime NgayBD, DateTime NgayKT, string GhiChu, int TinhTrang,string MaPhong)
         {
-            string sql = "exec sp_SVThuePhong_Update '" + MaSoThue + "',N'" + NgayBD + "','" + NgayKT + "',N'" + GhiChu + "','" + TinhTrang + "'";
+            string sql = "exec sp_SVThuePhong_Update '" + MaSoThue + "',N'" + NgayBD + "','" + NgayKT + "',N'" + GhiChu + "','" + TinhTrang + "','"+MaPhong+"'";
             helper.ExecuteQuery(sql);
         }
 

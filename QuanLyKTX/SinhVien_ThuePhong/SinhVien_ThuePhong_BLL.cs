@@ -37,20 +37,24 @@ namespace QuanLyKTX.SinhVien_DatPhong
 
                 TimeSpan time = endDay.Subtract(startDay);
 
-                if (time.Days > 0)
+                if (time.Days > 30)
                 {
                     try
                     {
                         SV_Phong.Insert(MaSoThue, MaSV, MaPhong, DateTime.Parse(NgayBD), DateTime.Parse(NgayKT), GhiChu, TinhTrang);
                     }
-                    catch
+                    catch (FormatException)
                     {
                         throw new Exception("Vui lòng nhập đúng định dạng");
+                    }
+                    catch
+                    {
+                        throw new Exception("Phòng không còn trống");
                     }
                 }
                 else
                 {
-                    throw new Exception("Ngày kết thúc sau ngày bắt đầu");
+                    throw new Exception("Bạn phải thuê phòng ít nhất 1 tháng");
                 }
             }
             else
@@ -58,27 +62,31 @@ namespace QuanLyKTX.SinhVien_DatPhong
                 throw new Exception("Thao tác không thành công!! Hãy xem xét lại");
             }
         }
-        public void Update(string MaSoThue, string NgayBD, string NgayKT, string GhiChu, int TinhTrang)
+        public void Update(string MaSoThue, string NgayBD, string NgayKT, string GhiChu, int TinhTrang,string MaPhong)
         {
             DateTime startDay = Convert.ToDateTime(NgayBD);
             DateTime endDay = Convert.ToDateTime(NgayKT);
 
             TimeSpan time = endDay.Subtract(startDay);
 
-            if (time.Days > 0)
+            if (time.Days > 30)
             {
                 try
                 {
-                    SV_Phong.Update(MaSoThue, DateTime.Parse(NgayBD), DateTime.Parse(NgayKT), GhiChu, TinhTrang);
+                    SV_Phong.Update(MaSoThue, DateTime.Parse(NgayBD), DateTime.Parse(NgayKT), GhiChu, TinhTrang,MaPhong);
+                }
+                catch(FormatException)
+                {
+                    throw new Exception("Vui lòng nhập đúng định dạng");
                 }
                 catch
                 {
-                    throw new Exception("Vui lòng nhập đúng định dạng");
+                    throw new Exception("Phòng không còn trống");
                 }
             }
             else
             {
-                throw new Exception("Ngày kết thúc sau ngày bắt đầu");
+                throw new Exception("Bạn phải thuê phòng ít nhất 1 tháng");
             }
         }
         public void Delete(string MaSoThue)

@@ -18,6 +18,12 @@ namespace QuanLyKTX
         SinhVien.SinhVien_GUI sinhvien = new SinhVien.SinhVien_GUI();
         SinhVien_DatPhong.SinhVien_ThuePhong_GUI SVThuePhong = new SinhVien_DatPhong.SinhVien_ThuePhong_GUI();
         SinhVien_TraPhong.SinhVien_TraPhong_GUI SVTraPhong = new SinhVien_TraPhong.SinhVien_TraPhong_GUI();
+        TimKiem.TimKiem_GUI timkiem = new TimKiem.TimKiem_GUI();
+
+        public void qlTimKiem()
+        {
+            timkiem.Show();
+        }
         public void qlSVThuePhong()
         {
             SVThuePhong.Show();

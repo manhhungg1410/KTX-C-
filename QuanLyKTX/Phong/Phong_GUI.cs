@@ -210,7 +210,8 @@ namespace QuanLyKTX.Phong
         {         
             try
             {           
-                dgv_Phong.DataSource = phong.Search(txt_TimKiem.Text,int.Parse(cbo_timnguoi.SelectedIndex.ToString()));
+
+                    dgv_Phong.DataSource = phong.Search(txt_TimKiem.Text, int.Parse(cbo_timnguoi.SelectedIndex.ToString()));
                 btn_Reset_Click(null, null);
             }
             catch (Exception ex)

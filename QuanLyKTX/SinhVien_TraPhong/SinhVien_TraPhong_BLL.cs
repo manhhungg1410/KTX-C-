@@ -19,13 +19,17 @@ namespace QuanLyKTX.SinhVien_TraPhong
 
         public void Insert(string MaSoThue, string NgayTra, string TienViPham)
         {
-            if (NgayTra != "" && TienViPham.ToString() != "")
+            if (NgayTra != "")
             {
                 if (checkThoiGian(NgayTra, MaSoThue))
                 {
                     try
                     {
-                        TraPhong.Insert(MaSoThue, DateTime.Parse(NgayTra), double.Parse(TienViPham));
+                        if (TienViPham == "")
+                        {
+                            TraPhong.Insert(MaSoThue, DateTime.Parse(NgayTra), 0);
+                        }
+                        else TraPhong.Insert(MaSoThue, DateTime.Parse(NgayTra), double.Parse(TienViPham));
                     }
                     catch
                     {
@@ -45,13 +49,21 @@ namespace QuanLyKTX.SinhVien_TraPhong
 
         public void Update(string MaSoThue, string NgayTra, string TienViPham)
         {
-            if (NgayTra != "" && TienViPham.ToString() != "")
+            if (NgayTra != "")
             {
                 if (checkThoiGian(NgayTra, MaSoThue))
                 {
                     try
                     {
-                        TraPhong.Update(MaSoThue, DateTime.Parse(NgayTra), double.Parse(TienViPham));
+                        if (TienViPham == "")
+                        {
+                            TraPhong.Update(MaSoThue, DateTime.Parse(NgayTra), 0);
+                        }
+                        else
+                        {
+                            TraPhong.Update(MaSoThue, DateTime.Parse(NgayTra), double.Parse(TienViPham));
+                        }
+                   
                     }
                     catch
                     {

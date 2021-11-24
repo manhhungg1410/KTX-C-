@@ -30,6 +30,8 @@ namespace QuanLyKTX.Phong
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbo_TrangThai = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.rdb_Nu = new System.Windows.Forms.RadioButton();
             this.rdb_Nam = new System.Windows.Forms.RadioButton();
             this.btn_AddKhu = new System.Windows.Forms.Button();
@@ -61,8 +63,8 @@ namespace QuanLyKTX.Phong
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
             this.dgv_Phong = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbo_TrangThai = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.chk_ShowPhong = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -96,6 +98,26 @@ namespace QuanLyKTX.Phong
             this.groupBox1.Size = new System.Drawing.Size(688, 268);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // cbo_TrangThai
+            // 
+            this.cbo_TrangThai.FormattingEnabled = true;
+            this.cbo_TrangThai.Items.AddRange(new object[] {
+            "Không Hoạt Động",
+            "Hoạt Động"});
+            this.cbo_TrangThai.Location = new System.Drawing.Point(291, 232);
+            this.cbo_TrangThai.Name = "cbo_TrangThai";
+            this.cbo_TrangThai.Size = new System.Drawing.Size(121, 26);
+            this.cbo_TrangThai.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(185, 235);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 18);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Trạng Thái:";
             // 
             // rdb_Nu
             // 
@@ -278,6 +300,8 @@ namespace QuanLyKTX.Phong
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.chk_ShowPhong);
+            this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.cbo_timnguoi);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label2);
@@ -301,7 +325,7 @@ namespace QuanLyKTX.Phong
             "4",
             "5",
             "6"});
-            this.cbo_timnguoi.Location = new System.Drawing.Point(147, 89);
+            this.cbo_timnguoi.Location = new System.Drawing.Point(147, 76);
             this.cbo_timnguoi.Name = "cbo_timnguoi";
             this.cbo_timnguoi.Size = new System.Drawing.Size(129, 24);
             this.cbo_timnguoi.TabIndex = 7;
@@ -309,7 +333,7 @@ namespace QuanLyKTX.Phong
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 96);
+            this.label7.Location = new System.Drawing.Point(16, 83);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 17);
             this.label7.TabIndex = 6;
@@ -421,25 +445,23 @@ namespace QuanLyKTX.Phong
             this.dgv_Phong.TabIndex = 4;
             this.dgv_Phong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Phong_CellClick);
             // 
-            // label9
+            // label10
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(185, 235);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 18);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Trạng Thái:";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(19, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(113, 17);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Phòng còn trống";
             // 
-            // cbo_TrangThai
+            // chk_ShowPhong
             // 
-            this.cbo_TrangThai.FormattingEnabled = true;
-            this.cbo_TrangThai.Items.AddRange(new object[] {
-            "Không Hoạt Động",
-            "Hoạt Động"});
-            this.cbo_TrangThai.Location = new System.Drawing.Point(291, 232);
-            this.cbo_TrangThai.Name = "cbo_TrangThai";
-            this.cbo_TrangThai.Size = new System.Drawing.Size(121, 26);
-            this.cbo_TrangThai.TabIndex = 17;
+            this.chk_ShowPhong.AutoSize = true;
+            this.chk_ShowPhong.Location = new System.Drawing.Point(147, 126);
+            this.chk_ShowPhong.Name = "chk_ShowPhong";
+            this.chk_ShowPhong.Size = new System.Drawing.Size(18, 17);
+            this.chk_ShowPhong.TabIndex = 9;
+            this.chk_ShowPhong.UseVisualStyleBackColor = true;
             // 
             // Phong_GUI
             // 
@@ -500,5 +522,7 @@ namespace QuanLyKTX.Phong
         private System.Windows.Forms.RadioButton rdb_Nam;
         private System.Windows.Forms.ComboBox cbo_TrangThai;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox chk_ShowPhong;
+        private System.Windows.Forms.Label label10;
     }
 }

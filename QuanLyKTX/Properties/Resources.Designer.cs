@@ -113,9 +113,29 @@ namespace QuanLyKTX.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DanhMuc321 {
+            get {
+                object obj = ResourceManager.GetObject("DanhMuc321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Doc32 {
             get {
                 object obj = ResourceManager.GetObject("Doc32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Doc321 {
+            get {
+                object obj = ResourceManager.GetObject("Doc321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
